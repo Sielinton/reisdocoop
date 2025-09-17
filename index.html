@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteio de Duplas - Reis do Coop</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Sorteio de Duplas - Ao Vivo</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.24.0/firebase-database-compat.js"></script>
 </head>
 <body>
-    <div class="container">
-        <h1>Sorteio de Duplas - Reis do Coop</h1>
-        
-        <div class="input-area">
-            <input type="text" id="name1" placeholder="Nome 1">
+  <div class="container">
+    <h1>Sorteio de Duplas - Reis do Coop</h1>
+
+    <div class="input-area">
+      <!-- Campos para os 16 nomes -->
+      <input type="text" id="name1" placeholder="Nome 1">
             <input type="text" id="name2" placeholder="Nome 2">
             <input type="text" id="name3" placeholder="Nome 3">
             <input type="text" id="name4" placeholder="Nome 4">
@@ -27,15 +30,30 @@
             <input type="text" id="name14" placeholder="Nome 14">
             <input type="text" id="name15" placeholder="Nome 15">
             <input type="text" id="name16" placeholder="Nome 16">
-        </div>
-        
-        <button id="sortButton" onclick="sortearDuplas()">Sortear Duplas</button>
-        
-        <div id="resultArea" class="result-area">
-            <p>As duplas serão mostradas aqui!</p>
-        </div>
     </div>
 
-    <script src="script.js"></script>
+    <button id="sortButton" onclick="sortearDuplas()">Sortear Duplas</button>
+
+    <div id="resultArea" class="result-area">
+      <p>As duplas serão mostradas aqui!</p>
+    </div>
+  </div>
+
+  <script>
+    // Cole aqui sua config do Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyDmAZ1pHgGEkXIdejPdiXtHOHmOODlkasU",
+      authDomain: "reisdocoop-f0b6e.firebaseapp.com",
+      databaseURL: "https://reisdocoop-f0b6e-default-rtdb.firebaseio.com/",
+      projectId: "reisdocoop-f0b6e",
+      storageBucket: "reisdocoop-f0b6e.firebasestorage.app",
+      messagingSenderId: "356801475512",
+      appId: "1:356801475512:web:1f8696ea2c9573acee954d"
+    };
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+  </script>
+
+  <script src="script.js"></script>
 </body>
 </html>
